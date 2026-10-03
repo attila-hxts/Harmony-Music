@@ -49,7 +49,9 @@ class SideNavBar extends StatelessWidget {
                         icon: Icon(Icons.settings),
                         label: SizedBox.shrink(),
                         selectedIcon: Icon(Icons.settings),
-                      )
+                      ),
+                      railDestination(
+                          "ArtistPath", isMobileOrTabScreen, Icons.alt_route),
                     ],
                   ),
                 ),
@@ -96,6 +98,11 @@ class SideNavBar extends StatelessWidget {
                     iconSelected: Icons.settings,
                     iconUnselected: Icons.settings_outlined,
                     text: 'settings'.tr,
+                  ),
+                  SideBarItem(
+                    iconSelected: Icons.alt_route,
+                    iconUnselected: Icons.alt_route,
+                    text: 'ArtistPath',
                   ),
                 ],
               ),
