@@ -9,8 +9,12 @@ class BottomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final homeScreenController = Get.find<HomeScreenController>();
     return Obx(() => NavigationBar(
-            onDestinationSelected: homeScreenController.onBottonBarTabSelected,
-            selectedIndex: homeScreenController.tabIndex.toInt(),
+            // Button 4 (ArtistPath) opens tab number 6
+            onDestinationSelected: (i) =>
+                homeScreenController.onBottonBarTabSelected(i == 4 ? 6 : i),
+            selectedIndex: homeScreenController.tabIndex.value == 6
+                ? 4
+                : homeScreenController.tabIndex.toInt(),
             backgroundColor: Theme.of(context).primaryColor,
             indicatorColor: Theme.of(context).colorScheme.secondary,
             labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
@@ -31,6 +35,10 @@ class BottomNavBar extends StatelessWidget {
               NavigationDestination(
                 icon: const Icon(Icons.settings),
                 label: modifyNgetlabel('settings'.tr),
+              ),
+              const NavigationDestination(
+                icon: Icon(Icons.alt_route),
+                label: 'ArtistPath',
               ),
             ]));
   }
