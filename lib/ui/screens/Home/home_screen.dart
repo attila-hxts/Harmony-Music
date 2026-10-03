@@ -17,6 +17,7 @@ import '../../widgets/quickpickswidget.dart';
 import '../../widgets/shimmer_widgets/home_shimmer.dart';
 import 'home_screen_controller.dart';
 import '../Settings/settings_screen.dart';
+import '../ArtistPath/artist_path_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -257,6 +258,8 @@ class Body extends StatelessWidget {
       return const LibraryArtistWidget();
     } else if (homeScreenController.tabIndex.value == 5) {
       return const SettingsScreen();
+    } else if (homeScreenController.tabIndex.value == 6) {
+      return const ArtistPathScreen();
     } else {
       return Center(
         child: Text("${homeScreenController.tabIndex.value}"),
